@@ -17,16 +17,14 @@ export default function Home() {
 
       <Container className="pb-14 mt-10">
         <div className="flex gap-[80px]">
-          {/*Фильтрация*/}
           <div className="w-[250px]">
             <Filters />
           </div>
 
-          {/*Список товаров*/}
           <div className="flex-1">
             <div className="flex flex-col gap-16">Список товаров</div>
             <ProductsGroupList
-              title="Пицца"
+              title="Пиццы"
               items={[
                 {
                   id: 1,
@@ -97,11 +95,11 @@ export default function Home() {
             />
 
             <ProductsGroupList
-              title="Завтрак"
+              title="Комбо"
               items={[
                 {
                   id: 1,
-                  name: "Чизбургер-пицца",
+                  name: "Пицца-Эмильчик",
                   imageUrl:
                     "https://media.dodostatic.net/image/r:584x584/11EEF9E43DC39C94AA5765DBF1C97100.avif",
                   price: 550,
