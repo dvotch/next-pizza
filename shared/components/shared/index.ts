@@ -12,7 +12,12 @@ export { ProductCard } from "./product-card";
 export { ProductsGroupList } from "./products-group-list";
 export { SearchInput } from "./search-input";
 export { PizzaImage } from "./pizza-image";
-export * from "./modals/choose-product-modal";
 export { ChooseProductForm } from "./choose-product-form";
 export { ChoosePizzaForm } from "./choose-pizza-form";
 export { IngredientCard } from "./ingredient-card";
+export { CartButton } from "./cart-button";
+export { CartDrawer } from "./cart-drawer";
+export { CartDrawerItem } from "./cart-drawer-item";
+
+export * from "./modals/choose-product-modal";
+export * from "./cart-item-details/index";
