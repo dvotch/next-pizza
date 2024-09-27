@@ -3,3 +3,7 @@ export { getAvailablePizzaSizes } from "./get-available-pizza-sizes";
 export { cn } from "./utils";
 export { getPizzaDetails } from "./get-pizza-details";
 export { getCartItemDetailsToText } from "./get-cart-item-details";
+export { getCartDetails } from "./get-cart-details";
+export { calcCartItemTotalPrice } from "./calc-cart-item-total-price";
+export { updateCartTotalAmount } from "./update-cart-total-amount";
+export { findOrCreateCart } from "./find-or-create-cart";
