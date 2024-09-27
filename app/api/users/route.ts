@@ -13,5 +13,5 @@ export async function POST(req: NextRequest) {
     data,
   });
 
-  return user;
+  return NextResponse.json(user);
 }
