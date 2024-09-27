@@ -1,6 +1,7 @@
 import { useSearchParams } from "next/navigation";
 import { useSet } from "react-use";
 import { useState } from "react";
+import React from "react";
 
 interface QueryFilters extends PriceProps {
   pizzaType: string;
@@ -60,14 +61,17 @@ export const useFilters = (): ReturnProps => {
     setPrices((prev) => ({ ...prev, [name]: value }));
   };
 
-  return {
-    sizes,
-    pizzaTypes,
-    selectedIngredients,
-    prices,
-    setPrices: updatePrice,
-    setPizzaTypes: togglePizzaType,
-    setSizes: toggleSizes,
-    setSelectedIngredients: toogleIngredients,
-  };
+  return React.useMemo(
+    () => ({
+      sizes,
+      pizzaTypes,
+      selectedIngredients,
+      prices,
+      setPrices: updatePrice,
+      setPizzaTypes: togglePizzaType,
+      setSizes: toggleSizes,
+      setSelectedIngredients: toogleIngredients,
+    }),
+    [sizes, pizzaTypes, prices, selectedIngredients]
+  );
 };
