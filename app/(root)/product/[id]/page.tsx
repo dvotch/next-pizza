@@ -1,4 +1,4 @@
-import { Container } from "@/shared/components/shared";
+import { Container, ProductForm } from "@/shared/components/shared";
 import { prisma } from "@/prisma/prisma-client";
 import { notFound } from "next/navigation";
 
@@ -11,6 +11,7 @@ export default async function ProductPage({
     where: { id: Number(id) },
     include: {
       ingredients: true,
+      //TODO: Возможна оптимизация (вынести в юзеффект для сокращения количества запросов)
       category: {
         include: {
           products: {
@@ -30,7 +31,7 @@ export default async function ProductPage({
 
   return (
     <Container className="flex flex-col my-10">
-      <h2>1231</h2>
+      <ProductForm product={product} />
     </Container>
   );
 }

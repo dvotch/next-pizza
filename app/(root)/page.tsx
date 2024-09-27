@@ -7,18 +7,14 @@ import {
 } from "@/shared/components/shared";
 import { prisma } from "@/prisma/prisma-client";
 import { Suspense } from "react";
+import { findPizzas, GetSearchParams } from "@/shared/lib/find-pizzas";
 
-export default async function Home() {
-  const categories = await prisma.category.findMany({
-    include: {
-      products: {
-        include: {
-          ingredients: true,
-          items: true,
-        },
-      },
-    },
-  });
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: GetSearchParams;
+}) {
+  const categories = await findPizzas(searchParams);
   return (
     <>
       <Container className="mt-10">
@@ -34,6 +30,7 @@ export default async function Home() {
         <div className="flex gap-[80px]">
           <div className="w-[250px]">
             <Suspense>
+              {/*TODO: НЕ РАБОТАЕТ ФИЛЬТР ПО ТИПУ ТЕСТА*/}
               <Filters />
             </Suspense>
           </div>
