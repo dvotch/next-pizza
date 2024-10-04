@@ -9,13 +9,11 @@ async function up() {
         fullName: "User Test",
         email: "user@test.ru",
         password: hashSync("1111111", 10),
-        verificated: new Date(),
       },
       {
         fullName: "Admin Test",
         email: "admin@test.ru",
         password: hashSync("1111111", 10),
-        verificated: new Date(),
         role: "ADMIN",
       },
     ],

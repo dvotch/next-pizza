@@ -1,9 +1,10 @@
 import { cn } from "@/shared/lib";
+import React from "react";
 
 interface Props {
   className?: string;
   title: React.ReactNode;
-  value?: string;
+  value?: React.ReactNode;
 }
 
 export const CheckoutItemDetail: React.FC<Props> = ({
@@ -18,7 +19,7 @@ export const CheckoutItemDetail: React.FC<Props> = ({
         <div className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2" />
       </span>
 
-      <span className="font-bold text-lg">{value} ₽</span>
+      <span className="font-bold text-lg">{value}</span>
     </div>
   );
 };
