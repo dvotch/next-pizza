@@ -10,7 +10,7 @@ export interface CartStateItem {
   name: string;
   imageUrl: string;
   price: number;
-  disabled: boolean;
+  disabled?: boolean;
   pizzaSize?: PizzaSize | null;
   pizzaType?: PizzaType | null;
   ingredients?: Array<{ name: string; price: number }>;

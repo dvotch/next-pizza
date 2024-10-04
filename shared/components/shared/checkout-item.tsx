@@ -19,11 +19,18 @@ export const CheckouttItem: React.FC<Props> = ({
   imageUrl,
   className,
   quantity,
+  disabled,
   onClickRemove,
   onClickCountButton,
 }) => {
   return (
-    <div className={cn("flex items-center justify-between", className)}>
+    <div
+      className={cn(
+        "flex items-center justify-between",
+        { "opacity-50 pointer-events-none": disabled },
+        className
+      )}
+    >
       <div className="flex items-center gap-5 flex-1">
         <CartItemDetails.Image src={imageUrl} />
         <CartItemDetails.Info
@@ -37,7 +44,7 @@ export const CheckouttItem: React.FC<Props> = ({
 
       <div className="flex items-center gap-5 ml-20">
         <CountButton onClick={onClickCountButton} value={quantity} />
-        <button onClick={onClickRemove}>
+        <button type="button" onClick={onClickRemove}>
           <X
             className="text-gray-400 cursor-pointer hover:text-gray-600"
             size={20}

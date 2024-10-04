@@ -18,9 +18,11 @@ import { cn, getCartItemDetailsToText } from "@/shared/lib";
 import Image from "next/image";
 import { Title } from "./title";
 import { useCart } from "@/shared/hooks/use-cart";
+import { PizzaSize, PizzaType } from "@/shared/constants/pizza";
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
+  const [redirecting, setRedirecting] = React.useState(false);
 
   const onClickCountButton = (
     id: number,
@@ -80,15 +82,11 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                 {items.map((item) => (
                   <CartDrawerItem
                     key={item.id}
-                    details={
-                      item.pizzaSize && item.pizzaType
-                        ? getCartItemDetailsToText(
-                            item.ingredients,
-                            item.pizzaType,
-                            item.pizzaSize
-                          )
-                        : ""
-                    }
+                    details={getCartItemDetailsToText(
+                      item.ingredients,
+                      item.pizzaType as PizzaType,
+                      item.pizzaSize as PizzaSize
+                    )}
                     id={item.id}
                     disabled={item.disabled}
                     imageUrl={item.imageUrl}
@@ -115,7 +113,12 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                   </div>
 
                   <Link href="/checkout">
-                    <Button type="submit" className="w-full h-12 text-base">
+                    <Button
+                      type="submit"
+                      onClick={() => setRedirecting(true)}
+                      loading={redirecting}
+                      className="w-full h-12 text-base"
+                    >
                       Оформить заказ <ArrowRight className="w-5 ml-2" />
                     </Button>
                   </Link>

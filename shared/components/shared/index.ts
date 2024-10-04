@@ -23,6 +23,13 @@ export { WhiteBlock } from "./white-block";
 export { CheckoutItemDetail } from "./checkout-item-detail";
 export { CheckouttItem } from "./checkout-item";
 export { CheckoutItemSkeleton } from "./checkout-item-skeleton";
+export { CheckoutSidebar } from "./checkout-sidebar";
+export { RequiredSymbol } from "./required-symbol";
+export { ErrorText } from "./error-text";
+export { ClearButton } from "./clear-button";
 
+export * from "./email-templates";
 export * from "./modals/choose-product-modal";
-export * from "./cart-item-details/index";
+export * from "./cart-item-details";
+export * from "./form";
+export * from "./checkout";
